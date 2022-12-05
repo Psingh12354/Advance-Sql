@@ -23,3 +23,16 @@ Select x,y from test where y>(select avg(y) from test)
 ``` 
 select emp.name,report.name from employee as emp join employee as report on emp.emp_id = report.report_id
 ```
+
+### Constraints
+- Most commons are-:
+  - Not Null
+  - Unique
+  - Primary Key
+  - Foreign Key
+  - Check(To check all values in a column satisfy certain condition)
+
+### Create table
+```
+create table student(id SERIAL PRIMARY KEY,age SMALLINT NOT NULL);
+```
