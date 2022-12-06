@@ -36,3 +36,9 @@ select emp.name,report.name from employee as emp join employee as report on emp.
 ```
 create table student(id SERIAL PRIMARY KEY,age SMALLINT NOT NULL);
 ```
+
+### Check Constraints 
+It is to put some condition like age>x
+```
+create table example(ex_id serial primary key, age smallint check(age>21));
+```
