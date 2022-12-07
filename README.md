@@ -42,3 +42,32 @@ It is to put some condition like age>x
 ```
 create table example(ex_id serial primary key, age smallint check(age>21));
 ```
+
+### Case
+- To apply condition similar to if else we have case is pgsql
+```
+select customer_id, 
+CASE
+when(customer_id<=100)_ then 'premimum'
+when(customer_id between 100 and 200) then 'plus'
+else 'Normal'
+END
+from customer;
+```
+- And can create a new class
+```
+select customer_id, 
+CASE
+when(customer_id<=100)_ then 'premimum'
+when(customer_id between 100 and 200) then 'plus'
+else 'Normal'
+END as customer_class
+from customer;
+```
+
+### Coalesce 
+- When table contain null values it help to substitute it with another value.
+``` 
+# so here discount column contain 1 NULL values which make the final column row null so coalesce replace that null value and assign a new value 0 
+select item,(price-coalesce(discount,0)) as final from table
+```
