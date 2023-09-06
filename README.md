@@ -13,14 +13,14 @@
 - String Functions & Operators [Refer](https://www.postgresql.org/docs/9.1/functions-string.html)
 
 - SubQuery
-```
+```sql
 Select x,y from test where y>(select avg(y) from test)
 ```
 
 - Joins [Refer](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-joins/)
 
 - Self join is a query to join the table in itself no special command only simple join required and on both side same table required.
-``` 
+```sql
 select emp.name,report.name from employee as emp join employee as report on emp.emp_id = report.report_id
 ```
 
@@ -33,19 +33,19 @@ select emp.name,report.name from employee as emp join employee as report on emp.
   - Check(To check all values in a column satisfy certain condition)
 
 ### Create table
-```
+```sql
 create table student(id SERIAL PRIMARY KEY,age SMALLINT NOT NULL);
 ```
 
 ### Check Constraints 
 It is to put some condition like age>x
-```
+```sql
 create table example(ex_id serial primary key, age smallint check(age>21));
 ```
 
 ### Case
 - To apply condition similar to if else we have case is pgsql
-```
+```sql
 select customer_id, 
 CASE
 when(customer_id<=100)_ then 'premimum'
@@ -55,7 +55,7 @@ END
 from customer;
 ```
 - And can create a new class
-```
+```sql
 select customer_id, 
 CASE
 when(customer_id<=100)_ then 'premimum'
@@ -67,7 +67,7 @@ from customer;
 
 ### Coalesce 
 - When table contain null values it help to substitute it with another value.
-``` 
+```sql
 # so here discount column contain 1 NULL values which make the final column row null so coalesce replace that null value and assign a new value 0 
 select item,(price-coalesce(discount,0)) as final from table
 ```
